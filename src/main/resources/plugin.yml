@@ -1,0 +1,16 @@
+name: NickName
+main: xyz.acrylicstyle.nick.NickName
+version: 0.0.1
+commands:
+  nick:
+    usage: "/<command> <nick> [player]"
+    aliases: ["nickname"]
+    permission: "nickname.nick"
+  unnick:
+    usage: "/<command> [player]"
+    aliases: ["resetnick"]
+    permission: "nickname.unnick"
+  nickskin:
+    usage: "/<command> <nick> [player]"
+    aliases: ["nickskin"]
+    permission: "nickname.nickskin"
