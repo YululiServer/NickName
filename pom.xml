@@ -62,7 +62,8 @@
         <dependency>
             <groupId>xyz.acrylicstyle</groupId>
             <artifactId>NMSAPI-1.8.8</artifactId>
-            <version>0.0.47</version>
+            <version>0.1.7</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
