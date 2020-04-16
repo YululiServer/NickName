@@ -6,7 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import xyz.acrylicstyle.craftbukkit.CraftPlayer;
+import xyz.acrylicstyle.craftbukkit.v1_8_R3.entity.CraftPlayer;
 
 public class UnNick implements CommandExecutor {
     @Override
