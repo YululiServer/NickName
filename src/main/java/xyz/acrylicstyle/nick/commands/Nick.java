@@ -21,14 +21,7 @@ public class Nick implements CommandExecutor {
         }
         if (args.length == 1) {
             Player player = (Player) sender;
-            player.setDisplayName(ChatColor.translateAlternateColorCodes('&', args[0]));
-            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', args[0]));
-            new CraftPlayer(player).getProfile().setField("name", args[0]);
-            for (Player p : Bukkit.getOnlinePlayers()) {
-                if (player.getUniqueId().equals(p.getUniqueId())) continue;
-                p.hidePlayer(player);
-                p.showPlayer(player);
-            }
+            nick(args, player);
             sender.sendMessage(ChatColor.GREEN + "ニックネームを" + args[0] + "に設定しました。");
             return true;
         }
@@ -38,18 +31,22 @@ public class Nick implements CommandExecutor {
                 sender.sendMessage(ChatColor.RED + "プレイヤーが見つかりません。");
                 return true;
             }
-            player.setDisplayName(ChatColor.translateAlternateColorCodes('&', args[0]));
-            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', args[0]));
-            new CraftPlayer(player).getProfile().setField("name", args[0]);
-            for (Player p : Bukkit.getOnlinePlayers()) {
-                if (player.getUniqueId().equals(p.getUniqueId())) continue;
-                p.hidePlayer(player);
-                p.showPlayer(player);
-            }
+            nick(args, player);
             sender.sendMessage(ChatColor.YELLOW + player.getName() + ChatColor.GREEN + "のニックネームを" + args[0] + "に設定しました。");
             return true;
         }
         sender.sendMessage(ChatColor.RED + "/nick <nick> [player]");
         return true;
+    }
+
+    private void nick(String[] args, Player player) {
+        player.setDisplayName(ChatColor.translateAlternateColorCodes('&', args[0]));
+        player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', args[0]));
+        new CraftPlayer(player).getProfile().setField("name", args[0]);
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            if (player.getUniqueId().equals(p.getUniqueId())) continue;
+            p.hidePlayer(player);
+            p.showPlayer(player);
+        }
     }
 }

@@ -6,7 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import xyz.acrylicstyle.api.MojangAPI;
+import xyz.acrylicstyle.api.v1_8_R1.MojangAPI;
 
 import java.util.UUID;
 
