@@ -6,9 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import xyz.acrylicstyle.api.v1_8_R1.MojangAPI;
-
-import java.util.UUID;
+import xyz.acrylicstyle.tomeito_api.TomeitoAPI;
 
 public class NickSkin implements CommandExecutor {
     @Override
@@ -23,14 +21,7 @@ public class NickSkin implements CommandExecutor {
         }
         if (args.length == 1) {
             Player player = (Player) sender;
-            UUID uuid;
-            try {
-                uuid = MojangAPI.getUniqueId(args[0]);
-            } catch (RuntimeException ignored) {
-                sender.sendMessage(ChatColor.RED + "プレイヤーが見つかりません。");
-                return true;
-            }
-            MojangAPI.changeSkin(player, uuid);
+            TomeitoAPI.changeSkin(player, args[0]);
             sender.sendMessage(ChatColor.GREEN + "スキンを" + args[0] + "に設定しました。");
             return true;
         }
@@ -40,14 +31,7 @@ public class NickSkin implements CommandExecutor {
                 sender.sendMessage(ChatColor.RED + "プレイヤーが見つかりません");
                 return true;
             }
-            UUID uuid;
-            try {
-                uuid = MojangAPI.getUniqueId(args[0]);
-            } catch (RuntimeException ignored) {
-                sender.sendMessage(ChatColor.RED + "プレイヤーが見つかりません。");
-                return true;
-            }
-            MojangAPI.changeSkin(player, uuid);
+            TomeitoAPI.changeSkin(player, args[0]);
             player.setDisplayName(ChatColor.translateAlternateColorCodes('&', args[0]));
             sender.sendMessage(ChatColor.YELLOW + player.getName() + ChatColor.GREEN + "のスキンを" + args[0] + "に設定しました。");
             return true;
