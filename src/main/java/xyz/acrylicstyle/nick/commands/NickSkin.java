@@ -32,7 +32,6 @@ public class NickSkin implements CommandExecutor {
                 return true;
             }
             TomeitoAPI.changeSkin(player, args[0]);
-            player.setDisplayName(ChatColor.translateAlternateColorCodes('&', args[0]));
             sender.sendMessage(ChatColor.YELLOW + player.getName() + ChatColor.GREEN + "のスキンを" + args[0] + "に設定しました。");
             return true;
         }
